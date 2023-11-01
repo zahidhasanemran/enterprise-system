@@ -23,7 +23,7 @@ const Register = () => {
             onSubmit={formik.handleSubmit}
             className="w-[500px] mt-24 max-w-full rounded-lg bg-white py-12 px-8 "
           >
-            <Title font="">Register your account</Title>
+            <Title>Register your account</Title>
             {/*
              * Username
              */}
