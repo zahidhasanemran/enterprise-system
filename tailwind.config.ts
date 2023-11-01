@@ -1,3 +1,4 @@
+import { raleway } from './app/ui/fonts'
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
@@ -12,6 +13,10 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
+      fontFamily: {
+        poppins: ['var(--font-poppins)'],
+        raleway: ['var(--font-raleway)'],
       },
     },
   },
