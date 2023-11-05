@@ -1,8 +1,13 @@
+/**
+ * THIS IS A SERVER COMPONENT
+ */
+
 import Header from '@/app/components/global/Header'
 import { poppins, raleway } from '@/app/ui/fonts'
 import type { Metadata } from 'next'
 import { getServerSession } from 'next-auth'
 import SessionProvider from '@/app/components/global/SessionProvider'
+// import { ClerkProvider } from '@clerk/nextjs'
 
 import './globals.css'
 
@@ -18,6 +23,7 @@ export default async function RootLayout({
 }) {
   const session = await getServerSession()
   return (
+    // <ClerkProvider>
     <html lang="en">
       <body className={`${raleway.variable} ${poppins.variable}`}>
         <main>
@@ -28,5 +34,6 @@ export default async function RootLayout({
         </main>
       </body>
     </html>
+    // </ClerkProvider>
   )
 }

@@ -6,6 +6,16 @@ const nextConfig = {
     serverAction: true,
   },
   i18n,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'i.ibb.co',
+        port: '',
+        // pathname: '/account123/**',
+      },
+    ],
+  },
 }
 
 module.exports = nextConfig

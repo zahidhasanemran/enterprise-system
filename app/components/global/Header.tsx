@@ -4,6 +4,7 @@ import { menus } from '@/app/constants/menu'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import React from 'react'
+import Navbar from '@/app/components/global/Navbar'
 
 function AuthButton() {
   const { data: session } = useSession()
@@ -21,9 +22,11 @@ function AuthButton() {
 
 const Header = () => {
   const { data: session } = useSession()
+
   return (
     <header className="bg-green-500 p-4 filter backdrop-blur-sm ">
       <div className="container mx-auto flex items-center justify-between">
+        <Navbar />
         {/* Left side with the text logo */}
         <Link href="/" className="block text-xl font-bold">
           Logo

@@ -1,4 +1,3 @@
-import LargeText from '@/app/components/Typography/Title/Large/Large'
 import { getServerSession } from 'next-auth'
 
 export default async function Home() {
