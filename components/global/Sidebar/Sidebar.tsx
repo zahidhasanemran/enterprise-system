@@ -1,12 +1,12 @@
 'use client'
 
-import { Logo } from '@/app/constants/images'
-import { sidebarMenu } from '@/app/constants/menu'
+import { Logo } from '@/constants/images'
+import { sidebarMenu } from '@/constants/menu'
 import { Montserrat } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { cn } from '@/app/lib/utils'
+import { cn } from '@/lib/utils'
 import { usePathname } from 'next/navigation'
 
 const montserrat = Montserrat({ weight: '600', subsets: ['latin'] })

@@ -9,17 +9,17 @@ import { toast } from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
 // import { ChatCompletionRequestMessage } from "openai";
 
-import { BotAvatar } from '@/app/components/global/BotAvatar/BotAvatar'
-import { Heading } from '@/app/components/global/Heading/Heading'
+import { BotAvatar } from '@/components/global/BotAvatar/BotAvatar'
+import { Heading } from '@/components/global/Heading/Heading'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form'
 import { cn } from '@/lib/utils'
 
-import { Loader } from '@/app/components/global/Loader/Loader'
-import { UserAvatar } from '@/app/components/global/UserAvatar/UserAvatar'
-import { Empty } from '@/app/components/global/Empty/Empty'
+import { Loader } from '@/components/global/Loader/Loader'
+import { UserAvatar } from '@/components/global/UserAvatar/UserAvatar'
+import { Empty } from '@/components/global/Empty/Empty'
 import { formSchema } from './validation'
 // import { useProModal } from '@/hooks/use-pro-modal'
 

@@ -1,7 +1,7 @@
 'use client'
 
-import { sidebarMenu } from '@/app/constants/menu'
-import { cn } from '@/app/lib/utils'
+import { sidebarMenu } from '@/constants/menu'
+import { cn } from '@/lib/utils'
 import { Card } from '@/components/ui/card'
 import { ArrowRight } from 'lucide-react'
 import { getServerSession } from 'next-auth'

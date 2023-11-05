@@ -2,11 +2,11 @@
  * THIS IS A SERVER COMPONENT
  */
 
-import Header from '@/app/components/global/Header'
-import { poppins, raleway } from '@/app/ui/fonts'
+import Header from '@/components/global/Header'
+import { poppins, raleway } from '@/ui/fonts'
 import type { Metadata } from 'next'
 import { getServerSession } from 'next-auth'
-import SessionProvider from '@/app/components/global/SessionProvider'
+import SessionProvider from '@/components/global/SessionProvider'
 // import { ClerkProvider } from '@clerk/nextjs'
 
 import './globals.css'

@@ -1,6 +1,6 @@
 'use client'
 
-import MobileSidebar from '@/app/components/global/MobileSidebar/MobileSidebar'
+import MobileSidebar from '@/components/global/MobileSidebar/MobileSidebar'
 import { Button } from '@/components/ui/button'
 import { Menu } from 'lucide-react'
 

@@ -7,7 +7,7 @@ interface DashLayoutProps {
 }
 
 import React from 'react'
-import Sidebar from '@/app/components/global/Sidebar/Sidebar'
+import Sidebar from '@/components/global/Sidebar/Sidebar'
 
 const DashboardLayout = ({ children }: DashLayoutProps) => {
   return (

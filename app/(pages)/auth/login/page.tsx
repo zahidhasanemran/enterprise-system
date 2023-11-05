@@ -1,9 +1,9 @@
 'use client'
 
-import SubmitButton from '@/app/components/Buttons/SubmitButton/SubmitButton'
-import Input from '@/app/components/Inputs/Input'
-import Title from '@/app/components/Typography/Title/Title'
-import { LoginFields, LoginSchema } from '@/app/constants/validation'
+import SubmitButton from '@/components/Buttons/SubmitButton/SubmitButton'
+import Input from '@/components/Inputs/Input'
+import Title from '@/components/Typography/Title/Title'
+import { LoginFields, LoginSchema } from '@/constants/validation'
 import { useFormik } from 'formik'
 
 const Login = () => {

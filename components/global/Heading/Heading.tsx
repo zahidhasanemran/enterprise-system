@@ -1,6 +1,6 @@
 import { Icon, PiIcon } from 'lucide-react'
 
-import { cn } from '@/app/lib/utils'
+import { cn } from '@/lib/utils'
 
 interface HeadingProps {
   title: string

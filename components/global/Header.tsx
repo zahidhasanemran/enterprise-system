@@ -1,10 +1,10 @@
 'use client'
 
-import { menus } from '@/app/constants/menu'
+import { menus } from '@/constants/menu'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import React from 'react'
-import Navbar from '@/app/components/global/Navbar'
+import Navbar from '@/components/global/Navbar'
 
 function AuthButton() {
   const { data: session } = useSession()

@@ -1,4 +1,4 @@
-import { raleway } from './app/ui/fonts'
+import { raleway } from './ui/fonts'
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
