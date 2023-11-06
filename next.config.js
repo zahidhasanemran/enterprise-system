@@ -16,7 +16,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'ibb.co',
+        hostname: 'oaidalleapiprodscus.blob.core.windows.net',
         port: '',
         // pathname: '/account123/**',
       },

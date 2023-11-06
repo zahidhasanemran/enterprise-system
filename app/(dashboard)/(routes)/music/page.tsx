@@ -21,7 +21,7 @@ import { cn } from '@/lib/utils'
 import { Loader } from '@/components/global/Loader/Loader'
 import { UserAvatar } from '@/components/global/UserAvatar/UserAvatar'
 import { Empty } from '@/components/global/Empty/Empty'
-// import { useProModal } from '@/hooks/use-pro-modal'
+import { useProModal } from '@/hooks/useProModal'
 
 import { formSchema } from './constants'
 
