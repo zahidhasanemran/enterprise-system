@@ -22,11 +22,11 @@ import { Loader } from '@/components/global/Loader/Loader'
 import { UserAvatar } from '@/components/global/UserAvatar/UserAvatar'
 import { Empty } from '@/components/global/Empty/Empty'
 import { formSchema } from './validation'
-// import { useProModal } from '@/hooks/use-pro-modal'
+import { useProModal } from '@/hooks/useProModal'
 
 const CodePage = () => {
   const router = useRouter()
-  // const proModal = useProModal()
+  const proModal = useProModal()
   const [messages, setMessages] = useState<any[]>([])
 
   const form = useForm<z.infer<typeof formSchema>>({

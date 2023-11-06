@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form'
 import { useState } from 'react'
 import { toast } from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
-// import { ChatCompletionRequestMessage } from "openai";
+import { ChatCompletionRequestMessage } from 'openai'
 
 import { BotAvatar } from '@/components/global/BotAvatar/BotAvatar'
 import { Heading } from '@/components/global/Heading/Heading'
@@ -21,13 +21,12 @@ import { Loader } from '@/components/global/Loader/Loader'
 import { UserAvatar } from '@/components/global/UserAvatar/UserAvatar'
 import { Empty } from '@/components/global/Empty/Empty'
 import { formSchema } from './validation'
-// import { useProModal } from '@/hooks/use-pro-modal'
+import { useProModal } from '@/hooks/useProModal'
 
 const ConversationPage = () => {
   const router = useRouter()
-  // const proModal = useProModal();
-  // const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);`
-  const [messages, setMessages] = useState([])
+  const proModal = useProModal()
+  const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([])
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -40,7 +39,7 @@ const ConversationPage = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      const userMessage: any = {
+      const userMessage: ChatCompletionRequestMessage = {
         role: 'user',
         content: values.prompt,
       }
@@ -54,7 +53,7 @@ const ConversationPage = () => {
       form.reset()
     } catch (error: any) {
       if (error?.response?.status === 403) {
-        // proModal.onOpen()
+        proModal.onOpen()
       } else {
         toast.error('Something went wrong.')
       }
@@ -125,22 +124,22 @@ const ConversationPage = () => {
           {messages.length === 0 && !isLoading && (
             <Empty label="No conversation started." />
           )}
-          {/* <div className="flex flex-col-reverse gap-y-4">
-            {messages.map((message) => (
-              <div 
-                key={message.content} 
+          <div className="flex flex-col-reverse gap-y-4">
+            {messages.map(message => (
+              <div
+                key={message.content}
                 className={cn(
-                  "p-8 w-full flex items-start gap-x-8 rounded-lg",
-                  message.role === "user" ? "bg-white border border-black/10" : "bg-muted",
+                  'p-8 w-full flex items-start gap-x-8 rounded-lg',
+                  message.role === 'user'
+                    ? 'bg-white border border-black/10'
+                    : 'bg-muted'
                 )}
               >
-                {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
-                <p className="text-sm">
-                  {message.content}
-                </p>
+                {message.role === 'user' ? <UserAvatar /> : <BotAvatar />}
+                <p className="text-sm">{message.content}</p>
               </div>
             ))}
-          </div> */}
+          </div>
         </div>
       </div>
     </div>
