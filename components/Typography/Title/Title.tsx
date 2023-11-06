@@ -15,7 +15,7 @@ interface TitleProps {
 const Title = ({ children, color = 'text-black' }: TitleProps) => {
   return (
     <h3
-      className={`${color} font-raleway font-bold text-lg md:text-xl xl:text-2xl 2xl:text-exl leading-[1.25] `}
+      className={`${color} font-jost font-bold text-lg md:text-xl xl:text-2xl 2xl:text-exl leading-[1.25] `}
     >
       {children}
     </h3>

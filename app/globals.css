@@ -71,6 +71,40 @@ body,
 main {
   height: 100%;
 }
+body {
+  position: relative;
+  z-index: 1;
+  background: url('https://i.ibb.co/0ZcMzkf/birth-supernova-nebula-ai-generation-created-fantastic-illustration-big-bang-explosion-universe-gene.jpg');
+  background-size: cover;
+  background-position: center center;
+  min-height: 100%;
+  height: auto;
+  backdrop-filter: blur(50px);
+  background-attachment: fixed;
+}
+/* body:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background: #000000b9;
+  z-index: -1;
+} */
+/* .body_overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  z-index: 0;
+  background: url('https://i.ibb.co/K9sQ3bp/b.jpg');
+  background-size: cover;
+  background-position: bottom center;
+  height: auto;
+} */
 
 @layer base {
   * {

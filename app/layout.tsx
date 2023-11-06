@@ -3,7 +3,7 @@
  */
 
 import Header from '@/components/global/Header'
-import { poppins, raleway } from '@/ui/fonts'
+import { poppins, jost } from '@/ui/fonts'
 import type { Metadata } from 'next'
 import { getServerSession } from 'next-auth'
 import SessionProvider from '@/components/global/SessionProvider'
@@ -25,10 +25,10 @@ export default async function RootLayout({
   return (
     // <ClerkProvider>
     <html lang="en">
-      <body className={`${raleway.variable} ${poppins.variable}`}>
+      <body className={`${jost.variable} ${poppins.variable} `}>
         <main>
           <SessionProvider session={session}>
-            <Header />
+            {/* <Header /> */}
             {children}
           </SessionProvider>
         </main>

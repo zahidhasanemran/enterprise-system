@@ -1,4 +1,4 @@
-import { Poppins, Raleway } from 'next/font/google'
+import { Jost, Poppins } from 'next/font/google'
 
 export const poppins = Poppins({
   weight: ['300', '400', '500', '700'],
@@ -7,9 +7,9 @@ export const poppins = Poppins({
   display: 'swap',
 })
 
-export const raleway = Raleway({
+export const jost = Jost({
   weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
-  variable: '--font-raleway',
+  variable: '--font-jost',
   display: 'swap',
 })

@@ -15,7 +15,7 @@ interface SubtitleProps {
 const Subtitle = ({ children, color = 'text-black' }: SubtitleProps) => {
   return (
     <h2
-      className={`${color} font-raleway font-bold text-xl md:text-2xl xl:text-3xl 2xl:text-4xl leading-[1.25] `}
+      className={`${color} font-jost font-bold text-xl md:text-2xl xl:text-3xl 2xl:text-4xl leading-[1.25] `}
     >
       {children}
     </h2>

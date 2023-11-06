@@ -1,4 +1,4 @@
-import { raleway } from './ui/fonts'
+import { jost, poppins } from './ui/fonts'
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
@@ -16,7 +16,7 @@ const config: Config = {
       },
       fontFamily: {
         poppins: ['var(--font-poppins)'],
-        raleway: ['var(--font-raleway)'],
+        jost: ['var(--font-jost)'],
       },
     },
   },

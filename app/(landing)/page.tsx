@@ -1,16 +1,13 @@
 import { getServerSession } from 'next-auth'
+import Hero from '@/app/(landing)/Hero/Hero'
 
 export default async function Home() {
   const session = await getServerSession()
-  console.log(session)
+  // console.log(session)
 
   return (
-    <>
-      {session?.user?.name ? (
-        <div>{session?.user?.name}</div>
-      ) : (
-        <div>Not Logged In</div>
-      )}
-    </>
+    <div className="body_overlay">
+      <Hero />
+    </div>
   )
 }
