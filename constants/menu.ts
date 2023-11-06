@@ -59,11 +59,11 @@ export const sidebarMenu = [
     icon: Code,
     color: 'text-green-700',
   },
-  {
-    id: 7,
-    href: '/settings',
-    label: 'Settings',
-    icon: Settings,
-    color: '',
-  },
+  // {
+  //   id: 7,
+  //   href: '/settings',
+  //   label: 'Settings',
+  //   icon: Settings,
+  //   color: '',
+  // },
 ]
