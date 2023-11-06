@@ -10,20 +10,16 @@ const ServerAction = async () => {
 
   const session = await getServerSession()
 
-  const whoAmI = async () => {
-    'use server'
-    return session?.user?.name || 'Not logged In'
-  }
+  // const whoAmI = async () => {
+  //   'use server'
+  //   return session?.user?.name || 'Not logged In'
+  // }
 
-  if (!session || !session.user) {
-    redirect('/api/auth/signin')
-  }
+  // if (!session || !session.user) {
+  //   redirect('/api/auth/signin')
+  // }
 
-  return (
-    <div>
-      <WhoAmIButton whoAmIAction={whoAmI} />
-    </div>
-  )
+  return <div>{/* <WhoAmIButton whoAmIAction={whoAmI} /> */}</div>
 }
 
 export default ServerAction
