@@ -1,11 +1,11 @@
-import { Icon, PiIcon } from 'lucide-react'
+import { XIcon, PiIcon } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 
 interface HeadingProps {
   title: string
   description: string
-  icon: Icon
+  icon: any
   iconColor?: string
   bgColor?: string
 }
