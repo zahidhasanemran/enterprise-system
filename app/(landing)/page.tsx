@@ -1,5 +1,8 @@
 import { getServerSession } from 'next-auth'
-import Hero from '@/app/(landing)/Hero/Hero'
+import Hero from '@/app/(landing)/components/Hero/Hero'
+import Features from '@/app/(landing)/components/Features/Features'
+import CodeFeature from '@/app/(landing)/components/CodeFeature/CodeFeature'
+import ChatFeature from '@/app/(landing)/components/ChatFeature/ChatFeature'
 
 export default async function Home() {
   const session = await getServerSession()
@@ -8,6 +11,9 @@ export default async function Home() {
   return (
     <div className="body_overlay">
       <Hero />
+      <Features />
+      <CodeFeature />
+      <ChatFeature />
     </div>
   )
 }
