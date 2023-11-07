@@ -1,13 +1,14 @@
 import Link from 'next/link'
 import React from 'react'
+import VerticalGallery from '../VerticalGallery/VerticalGallery'
 
 const Hero = () => {
   return (
     <div className="px-4 py-16">
       <div className=" ">
         <div className="container mx-auto bg-[#ffffff0b] rounded-xl ">
-          <div className="py-28">
-            <div className="w-full lg:w-1/2 ">
+          <div className=" flex ">
+            <div className="w-full py-28 lg:w-1/2 ">
               <h4 className="text-white">Meet your advanced AI</h4>
               <h3 className="font-jost font-bold text-white text-base xl:text-[48px] leading-[1.3] my-6 ">
                 Image generate with our ai instantly.
@@ -22,6 +23,9 @@ const Hero = () => {
               >
                 Generate Image
               </Link>
+            </div>
+            <div className="w-full min-h-full lg:w-1/2 overflow-hidden">
+              <VerticalGallery />
             </div>
           </div>
         </div>
