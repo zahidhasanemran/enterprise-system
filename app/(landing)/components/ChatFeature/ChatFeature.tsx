@@ -25,7 +25,7 @@ const ChatFeature = () => {
               </Link>
             </div>
             <div className="w-full min-h-full lg:w-1/2">
-              <div className="relative w-full h-full">
+              <div className="relative w-full h-full transform scale-75">
                 <Image
                   src={'https://i.ibb.co/Vv50sHJ/khali2.png'}
                   className="object-cover object-center flex items-center justify-center rounded-xl codeAnimation"
