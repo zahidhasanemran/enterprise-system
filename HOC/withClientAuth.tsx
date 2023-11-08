@@ -7,7 +7,7 @@ const withClientAuth = (WrapperComponent: React.ComponentType<any>) => {
   const Authenticated = (props: any) => {
     const session = useSession()
 
-    if (!session || !session?.user) {
+    if (!session || !session?.data) {
       redirect(LoginUrl)
     }
     return <WrapperComponent {...props} session={session} />

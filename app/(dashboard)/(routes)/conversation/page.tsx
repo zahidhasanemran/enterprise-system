@@ -7,6 +7,7 @@ import { Form, FormControl, FormField, FormItem } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import useConversation from '@/app/(dashboard)/(routes)/conversation/useConversation'
 import GeneratedConversationList from '@/components/Presentational/GeneratedConversationList/GeneratedConversationList'
+import withClientAuth from '@/HOC/withClientAuth'
 
 const ConversationPage = () => {
   const { messages, form, isLoading, onSubmit } = useConversation()
@@ -72,4 +73,4 @@ const ConversationPage = () => {
   )
 }
 
-export default ConversationPage
+export default withClientAuth(ConversationPage)

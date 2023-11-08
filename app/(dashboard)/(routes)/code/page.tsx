@@ -7,6 +7,7 @@ import { Form, FormControl, FormField, FormItem } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import useCode from '@/app/(dashboard)/(routes)/code/useCode'
 import GeneratedCodeList from '@/components/Presentational/GeneratedCodeList/GeneratedCodeList'
+import withClientAuth from '@/HOC/withClientAuth'
 
 const CodePage = () => {
   const { messages, form, isLoading, onSubmit } = useCode()
@@ -72,4 +73,4 @@ const CodePage = () => {
   )
 }
 
-export default CodePage
+export default withClientAuth(CodePage)

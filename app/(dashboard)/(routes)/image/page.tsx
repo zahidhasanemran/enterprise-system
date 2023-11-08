@@ -1,5 +1,6 @@
 'use client'
 
+import withClientAuth from '@/HOC/withClientAuth'
 import useImage from '@/app/(dashboard)/(routes)/image/useImage'
 import GeneratedImageList from '@/components/Presentational/GeneratedImageList/GeneratedImageList'
 import { Heading } from '@/components/global/Heading/Heading'
@@ -140,4 +141,4 @@ const ImagePage = () => {
   )
 }
 
-export default ImagePage
+export default withClientAuth(ImagePage)
