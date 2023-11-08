@@ -1,23 +1,15 @@
 'use client'
 
 import { Code } from 'lucide-react'
-import ReactMarkdown from 'react-markdown'
-
-import { BotAvatar } from '@/components/global/BotAvatar/BotAvatar'
 import { Heading } from '@/components/global/Heading/Heading'
 import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { cn } from '@/lib/utils'
-
-import { Empty } from '@/components/global/Empty/Empty'
-import { Loader } from '@/components/global/Loader/Loader'
-import { UserAvatar } from '@/components/global/UserAvatar/UserAvatar'
 import useCode from '@/app/(dashboard)/(routes)/code/useCode'
+import GeneratedCodeList from '@/components/Presentational/GeneratedCodeList/GeneratedCodeList'
 
 const CodePage = () => {
-  const { router, proModal, messages, setMessages, form, isLoading, onSubmit } =
-    useCode()
+  const { messages, form, isLoading, onSubmit } = useCode()
 
   return (
     <div className="mt-16">
@@ -73,44 +65,7 @@ const CodePage = () => {
           </Form>
         </div>
         <div className="space-y-4 mt-4">
-          {isLoading && (
-            <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
-              <Loader />
-            </div>
-          )}
-          {messages.length === 0 && !isLoading && (
-            <Empty label="No conversation started." />
-          )}
-          <div className="flex flex-col-reverse gap-y-4">
-            {messages.map(message => (
-              <div
-                key={message.content}
-                className={cn(
-                  'p-8 w-full flex items-start gap-x-8 rounded-lg',
-                  message.role === 'user'
-                    ? 'bg-white border border-black/10'
-                    : 'bg-muted'
-                )}
-              >
-                {message.role === 'user' ? <UserAvatar /> : <BotAvatar />}
-                <ReactMarkdown
-                  components={{
-                    pre: ({ node, ...props }) => (
-                      <div className="overflow-auto w-full my-2 bg-black/10 p-2 rounded-lg">
-                        <pre {...props} />
-                      </div>
-                    ),
-                    code: ({ node, ...props }) => (
-                      <code className="bg-black/10 rounded-lg p-1" {...props} />
-                    ),
-                  }}
-                  className="text-sm overflow-hidden leading-7"
-                >
-                  {message.content || ''}
-                </ReactMarkdown>
-              </div>
-            ))}
-          </div>
+          <GeneratedCodeList isLoading={isLoading} data={messages} />
         </div>
       </div>
     </div>

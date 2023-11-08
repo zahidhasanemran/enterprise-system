@@ -9,8 +9,7 @@ import useConversation from '@/app/(dashboard)/(routes)/conversation/useConversa
 import GeneratedConversationList from '@/components/Presentational/GeneratedConversationList/GeneratedConversationList'
 
 const ConversationPage = () => {
-  const { router, proModal, messages, setMessages, form, isLoading, onSubmit } =
-    useConversation()
+  const { messages, form, isLoading, onSubmit } = useConversation()
 
   return (
     <div className="mt-16">

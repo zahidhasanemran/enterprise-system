@@ -5,9 +5,7 @@ import { ChatCompletionRequestMessage } from 'openai'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-hot-toast'
-
 import { zodResolver } from '@hookform/resolvers/zod'
-
 import { useProModal } from '@/hooks/useProModal'
 
 const formSchema = z.object({
