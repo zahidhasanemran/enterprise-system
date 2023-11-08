@@ -1,26 +1,16 @@
 'use client'
 
-import * as z from 'zod'
-import axios from 'axios'
-import Image from 'next/image'
-import { useState } from 'react'
-import { zodResolver } from '@hookform/resolvers/zod'
 import { Download, ImageIcon } from 'lucide-react'
-import { useForm } from 'react-hook-form'
-import { toast } from 'react-hot-toast'
-import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 import { Heading } from '@/components/global/Heading/Heading'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Form, FormControl, FormField, FormItem } from '@/components/ui/form'
 import { Card, CardFooter } from '@/components/ui/card'
-import { cn } from '@/lib/utils'
+import { Form, FormControl, FormField, FormItem } from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
 
-import { Loader } from '@/components/global/Loader/Loader'
-import { UserAvatar } from '@/components/global/UserAvatar/UserAvatar'
 import { Empty } from '@/components/global/Empty/Empty'
-import { useProModal } from '@/hooks/useProModal'
+import { Loader } from '@/components/global/Loader/Loader'
 import {
   Select,
   SelectContent,
@@ -29,43 +19,12 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 
-import { amountOptions, formSchema, resolutionOptions } from './validation'
+import { amountOptions, resolutionOptions } from './validation'
+import useImage from '@/app/(dashboard)/(routes)/image/useImage'
 
 const ImagePage = () => {
-  const proModal = useProModal()
-  const router = useRouter()
-  const [photos, setPhotos] = useState<string[]>([])
-
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      prompt: '',
-      amount: '1',
-      resolution: '512x512',
-    },
-  })
-
-  const isLoading = form.formState.isSubmitting
-
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    try {
-      setPhotos([])
-
-      const response = await axios.post('/api/image', values)
-
-      const urls = response.data.map((image: { url: string }) => image.url)
-
-      setPhotos(urls)
-    } catch (error: any) {
-      if (error?.response?.status === 403) {
-        // proModal.onOpen();
-      } else {
-        toast.error('Something went wrong.')
-      }
-    } finally {
-      router.refresh()
-    }
-  }
+  const { router, proModal, photos, setPhotos, form, isLoading, onSubmit } =
+    useImage()
 
   return (
     <div className="mt-16">
