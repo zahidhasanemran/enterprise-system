@@ -13,7 +13,7 @@ import { cn } from '@/lib/utils'
 import { Empty } from '@/components/global/Empty/Empty'
 import { Loader } from '@/components/global/Loader/Loader'
 import { UserAvatar } from '@/components/global/UserAvatar/UserAvatar'
-import useCode from './useCode'
+import useCode from '@/app/(dashboard)/(routes)/code/useCode'
 
 const CodePage = () => {
   const { router, proModal, messages, setMessages, form, isLoading, onSubmit } =
