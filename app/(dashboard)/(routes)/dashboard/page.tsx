@@ -1,21 +1,15 @@
 'use client'
 
+import withServerAuth from '@/HOC/withServerAuth'
+import { Card } from '@/components/ui/card'
 import { sidebarMenu } from '@/constants/menu'
 import { cn } from '@/lib/utils'
-import { Card } from '@/components/ui/card'
 import { ArrowRight } from 'lucide-react'
-import { getServerSession } from 'next-auth'
-import { redirect, useRouter } from 'next/navigation'
-import React from 'react'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 
 const Dashboard = () => {
-  // const session = await getServerSession()
-
   const router = useRouter()
-
-  // if (!session || !session.user) {
-  //   redirect('/api/auth/signin')
-  // }
 
   return (
     <div>

@@ -1,7 +1,5 @@
-import { CodeFeatureImg } from '@/constants/images'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 
 const ChatFeature = () => {
   return (
