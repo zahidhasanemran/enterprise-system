@@ -24,21 +24,7 @@ const CodePage = () => {
       <div className="px-4 lg:px-8">
         <div>
           <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="
-                rounded-lg 
-                border 
-                w-full 
-                p-4 
-                px-3 
-                md:px-6 
-                focus-within:shadow-sm
-                grid
-                grid-cols-12
-                gap-2
-              "
-            >
+            <form onSubmit={form.handleSubmit(onSubmit)} className="form-1">
               <FormField
                 name="prompt"
                 render={({ field }) => (

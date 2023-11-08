@@ -11,32 +11,10 @@ main {
   position: relative;
   z-index: 1;
   background: url('https://i.ibb.co/0ZcMzkf/birth-supernova-nebula-ai-generation-created-fantastic-illustration-big-bang-explosion-universe-gene.jpg');
-
   background-size: cover;
   min-height: 100vh;
   height: 100%;
   background-attachment: fixed;
-}
-@layer directive {
-  .border-golden {
-  }
-}
-@layer components {
-  .heading-1 {
-    @apply font-bold text-white text-base xl:text-[42px] leading-[1.3] my-6;
-  }
-  .heading-2 {
-    @apply font-bold text-white text-base md:text-[24px] xl:text-[32px] leading-[1.3] my-6;
-  }
-  .heading-3 {
-    @apply font-bold text-[#e2e8f0] text-2xl leading-[32px];
-  }
-  .paragraph-1 {
-    @apply font-[400] text-[#cbd5e1] text-base;
-  }
-  .link-1 {
-    @apply inline-block text-[15px] border border-golden px-6 py-4 rounded-full leading-[1.3] text-white;
-  }
 }
 
 .dir-3,
@@ -145,4 +123,29 @@ main {
   display: block;
   width: 100%;
   height: 100%;
+}
+
+@layer components {
+  .heading-1 {
+    @apply font-bold text-white text-base xl:text-[42px] leading-[1.3] my-6;
+  }
+  .heading-2 {
+    @apply font-bold text-white text-base md:text-[24px] xl:text-[32px] leading-[1.3] my-6;
+  }
+  .heading-3 {
+    @apply font-bold text-[#e2e8f0] text-2xl leading-[32px];
+  }
+  .paragraph-1 {
+    @apply font-[400] text-[#cbd5e1] text-base;
+  }
+  .link-1 {
+    @apply inline-block text-[15px] border border-golden px-6 py-4 rounded-full leading-[1.3] text-white;
+  }
+
+  .form-1 {
+    @apply rounded-lg border w-full p-4 px-3 md:px-6 focus-within:shadow-sm grid grid-cols-12 gap-2;
+  }
+  .input-1 {
+    @apply border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent;
+  }
 }
