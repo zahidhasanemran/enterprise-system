@@ -1,65 +1,23 @@
 'use client'
 
-import * as z from 'zod'
-import axios from 'axios'
 import { Code } from 'lucide-react'
-import { useForm } from 'react-hook-form'
-import { useState } from 'react'
-import { toast } from 'react-hot-toast'
 import ReactMarkdown from 'react-markdown'
-import { useRouter } from 'next/navigation'
-import { ChatCompletionRequestMessage } from 'openai'
 
 import { BotAvatar } from '@/components/global/BotAvatar/BotAvatar'
 import { Heading } from '@/components/global/Heading/Heading'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { zodResolver } from '@hookform/resolvers/zod'
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
 import { cn } from '@/lib/utils'
 
+import { Empty } from '@/components/global/Empty/Empty'
 import { Loader } from '@/components/global/Loader/Loader'
 import { UserAvatar } from '@/components/global/UserAvatar/UserAvatar'
-import { Empty } from '@/components/global/Empty/Empty'
-import { formSchema } from './validation'
-import { useProModal } from '@/hooks/useProModal'
+import useCode from './useCode'
 
 const CodePage = () => {
-  const router = useRouter()
-  const proModal = useProModal()
-  const [messages, setMessages] = useState<any[]>([])
-
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      prompt: '',
-    },
-  })
-
-  const isLoading = form.formState.isSubmitting
-
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    try {
-      const userMessage: ChatCompletionRequestMessage = {
-        role: 'user',
-        content: values.prompt,
-      }
-      const newMessages = [...messages, userMessage]
-
-      const response = await axios.post('/api/code', { messages: newMessages })
-      setMessages(current => [...current, userMessage, response.data])
-
-      form.reset()
-    } catch (error: any) {
-      if (error?.response?.status === 403) {
-        proModal.onOpen()
-      } else {
-        toast.error('Something went wrong.')
-      }
-    } finally {
-      router.refresh()
-    }
-  }
+  const { router, proModal, messages, setMessages, form, isLoading, onSubmit } =
+    useCode()
 
   return (
     <div className="mt-16">

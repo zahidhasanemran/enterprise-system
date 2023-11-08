@@ -1,7 +1,5 @@
-import { CodeFeatureImg } from '@/constants/images'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 
 const CodeFeature = () => {
   return (
@@ -16,8 +14,6 @@ const CodeFeature = () => {
                     'https://i.ibb.co/8XxZ4yF/ai-artificial-intelligence-891197-25-removebg-preview.png'
                   }
                   className="codeAnimation"
-                  // src={'https://i.ibb.co/x52dYg2/khaki.png'}
-                  // className="object-cover object-center flex items-center justify-center rounded-xl"
                   alt="code"
                   fill
                 />

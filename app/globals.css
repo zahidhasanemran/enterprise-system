@@ -6,51 +6,19 @@ html,
 body,
 main {
   height: 100vh;
-  /* font-family: 'jost', sans-serif; */
 }
 .body_bg {
   position: relative;
   z-index: 1;
-  /* background: url('https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?q=80&w=1571&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); */
   background: url('https://i.ibb.co/0ZcMzkf/birth-supernova-nebula-ai-generation-created-fantastic-illustration-big-bang-explosion-universe-gene.jpg');
-  /* background-repeat: no-repeat; */
+
   background-size: cover;
-  /* background-position: 0% 0%; */
   min-height: 100vh;
   height: 100%;
-  /* backdrop-filter: blur(50px); */
   background-attachment: fixed;
 }
-/* body:before {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  content: '';
-  background: #000000b9;
-  z-index: -1;
-} */
-/* .body_overlay {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: auto;
-  min-height: 100%;
-  z-index: 0;
-  background: url('https://i.ibb.co/K9sQ3bp/b.jpg');
-  background-size: cover;
-  background-position: bottom center;
-  height: auto;
-} */
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
+@layer directive {
+  .border-golden {
   }
 }
 @layer components {

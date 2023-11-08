@@ -1,5 +1,4 @@
 import { dm1, dm2 } from '@/constants/assets'
-import React from 'react'
 
 const HorizontalGallery = () => {
   return (
