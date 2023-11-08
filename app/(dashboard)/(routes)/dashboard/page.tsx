@@ -1,11 +1,10 @@
 'use client'
 
-import withServerAuth from '@/HOC/withServerAuth'
+import withClientAuth from '@/HOC/withClientAuth'
 import { Card } from '@/components/ui/card'
 import { sidebarMenu } from '@/constants/menu'
 import { cn } from '@/lib/utils'
 import { ArrowRight } from 'lucide-react'
-import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 
 const Dashboard = () => {
@@ -42,4 +41,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default withClientAuth(Dashboard)
