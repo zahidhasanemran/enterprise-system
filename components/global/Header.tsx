@@ -3,8 +3,10 @@
 import { menus } from '@/constants/menu'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
-import React from 'react'
+import React, { useReducer } from 'react'
 import Navbar from '@/components/global/Navbar'
+import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 
 function AuthButton() {
   const { data: session } = useSession()
@@ -13,24 +15,32 @@ function AuthButton() {
     return (
       <>
         {/* {session?.user?.name} <br /> */}
-        <button onClick={() => signOut()}>Log out</button>
+        <button className="text-white" onClick={() => signOut()}>
+          Log out
+        </button>
       </>
     )
   }
-  return <button onClick={() => signIn()}>Login</button>
+  return (
+    <button className="text-white" onClick={() => signIn()}>
+      Login
+    </button>
+  )
 }
 
 const Header = () => {
   const { data: session } = useSession()
+  const router = usePathname()
+
+  if (router !== '/') {
+    return <></>
+  }
 
   return (
-    <header className="bg-green-500 p-4 filter backdrop-blur-sm ">
+    <header className="p-4 absolute left-0 top-0 w-full  bg-white/10 backdrop-blur-sm ">
       <div className="container mx-auto flex items-center justify-between">
         <Navbar />
         {/* Left side with the text logo */}
-        <Link href="/" className="block text-xl font-bold">
-          Logo
-        </Link>
 
         {/* Right side with links */}
         <nav className="flex gap-x-3">
@@ -40,7 +50,7 @@ const Header = () => {
                 <Link
                   key={sm?.id}
                   href={sm?.link}
-                  className="block px-3 font-poppins py-3 text-gray-800 hover:text-black transition-colors"
+                  className="block px-3 font-poppins py-3 text-white  transition-colors"
                 >
                   {sm?.title}
                 </Link>
@@ -50,7 +60,7 @@ const Header = () => {
                 <Link
                   key={sm?.id}
                   href={sm?.link}
-                  className="block px-3 font-poppins py-3 text-gray-800 hover:text-black transition-colors"
+                  className="block px-3 font-poppins py-3 text-white transition-colors"
                 >
                   {sm?.title}
                 </Link>

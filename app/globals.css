@@ -5,18 +5,20 @@
 html,
 body,
 main {
-  height: 100%;
-  font-family: 'jost', sans-serif;
+  height: 100vh;
+  /* font-family: 'jost', sans-serif; */
 }
-body {
+.body_bg {
   position: relative;
   z-index: 1;
+  /* background: url('https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?q=80&w=1571&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); */
   background: url('https://i.ibb.co/0ZcMzkf/birth-supernova-nebula-ai-generation-created-fantastic-illustration-big-bang-explosion-universe-gene.jpg');
+  /* background-repeat: no-repeat; */
   background-size: cover;
-  background-position: center center;
-  min-height: 100%;
-  height: auto;
-  backdrop-filter: blur(50px);
+  /* background-position: 0% 0%; */
+  min-height: 100vh;
+  height: 100%;
+  /* backdrop-filter: blur(50px); */
   background-attachment: fixed;
 }
 /* body:before {

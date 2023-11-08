@@ -4,7 +4,7 @@ import VerticalGallery from '@/app/(landing)/components/VerticalGallery/Vertical
 
 const Hero = () => {
   return (
-    <div className="px-4 py-16">
+    <div className="px-4 pb-16 pt-[150px]">
       <div className=" ">
         <div className="container mx-auto bg-[#ffffff0b] rounded-xl ">
           <div className=" flex ">

@@ -8,7 +8,7 @@ import type { Metadata } from 'next'
 import { getServerSession } from 'next-auth'
 import SessionProvider from '@/components/global/SessionProvider'
 // import { ClerkProvider } from '@clerk/nextjs'
-
+import { headers } from 'next/headers'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -22,13 +22,21 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   const session = await getServerSession()
+  const pathname = headers().get('x-next-pathname') as string
+  console.log(pathname)
+
+  // console.log(router, 'router')
   return (
     // <ClerkProvider>
     <html lang="en">
-      <body className={`${jost.variable} ${poppins.variable} `}>
+      <body
+        className={`${jost.variable} ${poppins.variable} ${
+          pathname === '/' ? ' body_b' : ''
+        } `}
+      >
         <main>
           <SessionProvider session={session}>
-            {/* <Header /> */}
+            <Header />
             {children}
           </SessionProvider>
         </main>
