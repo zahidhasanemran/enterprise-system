@@ -19,12 +19,20 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 
-import { amountOptions, resolutionOptions } from './validation'
 import useImage from '@/app/(dashboard)/(routes)/image/useImage'
 
 const ImagePage = () => {
-  const { router, proModal, photos, setPhotos, form, isLoading, onSubmit } =
-    useImage()
+  const {
+    router,
+    proModal,
+    photos,
+    setPhotos,
+    form,
+    isLoading,
+    onSubmit,
+    amountOptions,
+    resolutionOptions,
+  } = useImage()
 
   return (
     <div className="mt-16">
