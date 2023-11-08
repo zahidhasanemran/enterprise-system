@@ -19,7 +19,7 @@ const Hero = () => {
                 Get AI generated images from text straight from your browser
                 very easily.
               </p>
-              <Link className="link-1 " href="/">
+              <Link className="link-1 " href="/image">
                 Generate Image
               </Link>
             </div>

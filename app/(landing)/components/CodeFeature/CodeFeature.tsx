@@ -30,7 +30,7 @@ const CodeFeature = () => {
                 Get AI generated code from text straight from your browser very
                 easily.
               </p>
-              <Link className="link-1 " href="/">
+              <Link className="link-1 " href="/code">
                 Generate Code
               </Link>
             </div>
