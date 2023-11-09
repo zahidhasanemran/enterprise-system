@@ -11,23 +11,21 @@ interface ImagesListProps {
 }
 
 const GeneratedImageList = ({ data, isLoading }: ImagesListProps) => {
-  {
-    isLoading && (
-      <div className="p-20">
+  if (isLoading) {
+    return (
+      <div data-testid="loading" className="p-20 error">
         <Loader />
       </div>
     )
   }
-  {
-    data.length === 0 && !isLoading && <Empty label="No images generated." />
-  }
+  if (data.length === 0 && !isLoading) <Empty label="No images generated." />
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
-      {data.map(src => (
+      {data.map((src, i) => (
         <Card key={src} className="rounded-lg overflow-hidden">
           <div className="relative aspect-square">
-            <Image fill alt="Generated" src={src} />
+            <Image fill alt={`Generated${i}`} src={src} />
           </div>
           <CardFooter className="p-2">
             <Button

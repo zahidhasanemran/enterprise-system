@@ -8,9 +8,7 @@ import { render } from '@testing-library/react'
 
 describe('LargeText component', () => {
   it('renders with default props', () => {
-    const { getByText, container } = render(
-      <LargeText font="">Lorem Ipsum</LargeText>
-    )
+    const { getByText, container } = render(<LargeText>Lorem Ipsum</LargeText>)
 
     expect(getByText('Lorem Ipsum')).toBeInTheDocument()
 
@@ -19,15 +17,11 @@ describe('LargeText component', () => {
 
   it('render with custom props', () => {
     const { container, getByText } = render(
-      <LargeText color="text-red-500" font="font-banera">
-        Custom text
-      </LargeText>
+      <LargeText color="text-red-500">Custom text</LargeText>
     )
 
     expect(getByText('Custom text')).toBeInTheDocument()
 
     expect(container.querySelector('.text-red-500')).toBeInTheDocument()
-
-    expect(container.querySelector('.font-banera')).toBeInTheDocument()
   })
 })
