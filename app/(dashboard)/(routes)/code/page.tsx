@@ -1,14 +1,11 @@
 'use client'
 
-import { Code } from 'lucide-react'
-import { Heading } from '@/components/global/Heading/Heading'
-import { Button } from '@/components/ui/button'
-import { Form, FormControl, FormField, FormItem } from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+import withClientAuth from '@/HOC/withClientAuth'
 import useCode from '@/app/(dashboard)/(routes)/code/useCode'
 import GeneratedCodeList from '@/components/Presentational/GeneratedCodeList/GeneratedCodeList'
-import withClientAuth from '@/HOC/withClientAuth'
 import CodeForm from '@/components/forms/CodeForm/CodeForm'
+import { Heading } from '@/components/global/Heading/Heading'
+import { Code } from 'lucide-react'
 
 const CodePage = () => {
   const { messages, form, isLoading, onSubmit } = useCode()

@@ -1,13 +1,11 @@
 'use client'
 
-import { MessageSquare } from 'lucide-react'
-import { Heading } from '@/components/global/Heading/Heading'
-import { Button } from '@/components/ui/button'
-import { Form, FormControl, FormField, FormItem } from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+import withClientAuth from '@/HOC/withClientAuth'
 import useConversation from '@/app/(dashboard)/(routes)/conversation/useConversation'
 import GeneratedConversationList from '@/components/Presentational/GeneratedConversationList/GeneratedConversationList'
-import withClientAuth from '@/HOC/withClientAuth'
+import ConversationForm from '@/components/forms/ConversationForm/ConversationForm'
+import { Heading } from '@/components/global/Heading/Heading'
+import { MessageSquare } from 'lucide-react'
 
 const ConversationPage = () => {
   const { messages, form, isLoading, onSubmit } = useConversation()
@@ -23,33 +21,11 @@ const ConversationPage = () => {
       />
       <div className="px-4 lg:px-8">
         <div>
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="form-1">
-              <FormField
-                name="prompt"
-                render={({ field }) => (
-                  <FormItem className="col-span-12 lg:col-span-10">
-                    <FormControl className="m-0 p-0">
-                      <Input
-                        className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-                        disabled={isLoading}
-                        placeholder="How do I calculate the radius of a circle?"
-                        {...field}
-                      />
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
-              <Button
-                className="col-span-12 lg:col-span-2 w-full"
-                type="submit"
-                disabled={isLoading}
-                size="icon"
-              >
-                Generate
-              </Button>
-            </form>
-          </Form>
+          <ConversationForm
+            form={form}
+            onSubmit={onSubmit}
+            isLoading={isLoading}
+          />
         </div>
         <div className="space-y-4 mt-4">
           <GeneratedConversationList isLoading={isLoading} data={messages} />
