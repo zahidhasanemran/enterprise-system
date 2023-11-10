@@ -12,17 +12,18 @@ interface CodeListProps {
 }
 
 const GeneratedCodeList = ({ isLoading, data }: CodeListProps) => {
-  {
-    isLoading && (
-      <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
+  if (isLoading) {
+    return (
+      <div
+        data-testid="code-loading"
+        className="p-8 rounded-lg w-full flex items-center justify-center bg-muted"
+      >
         <Loader />
       </div>
     )
   }
-  {
-    data.length === 0 && !isLoading && (
-      <Empty label="No conversation started." />
-    )
+  if (data.length === 0 && !isLoading) {
+    return <Empty label="No conversation started." />
   }
 
   return (
@@ -38,7 +39,7 @@ const GeneratedCodeList = ({ isLoading, data }: CodeListProps) => {
           )}
         >
           {message.role === 'user' ? <UserAvatar /> : <BotAvatar />}
-          <ReactMarkdown
+          {/* <ReactMarkdown
             components={{
               pre: ({ node, ...props }) => (
                 <div className="overflow-auto w-full my-2 bg-black/10 p-2 rounded-lg">
@@ -52,7 +53,7 @@ const GeneratedCodeList = ({ isLoading, data }: CodeListProps) => {
             className="text-sm overflow-hidden leading-7"
           >
             {message.content || ''}
-          </ReactMarkdown>
+          </ReactMarkdown> */}
         </div>
       ))}
     </div>

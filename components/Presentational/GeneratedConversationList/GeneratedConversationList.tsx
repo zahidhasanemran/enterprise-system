@@ -14,17 +14,18 @@ const GeneratedConversationList = ({
   isLoading,
   data,
 }: ConversionListProps) => {
-  {
-    isLoading && (
-      <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
+  if (isLoading) {
+    return (
+      <div
+        data-testid="chat-loading"
+        className="p-8 rounded-lg w-full flex items-center justify-center bg-muted"
+      >
         <Loader />
       </div>
     )
   }
-  {
-    data.length === 0 && !isLoading && (
-      <Empty label="No conversation started." />
-    )
+  if (data.length === 0 && !isLoading) {
+    return <Empty label="No conversation started." />
   }
 
   return (

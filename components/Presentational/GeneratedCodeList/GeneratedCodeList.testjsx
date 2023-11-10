@@ -1,0 +1,13 @@
+import { render, screen } from '@testing-library/react'
+import GeneratedCodeList from './GeneratedCodeList'
+
+describe('GeneratedCodeList', () => {
+  it('render loading screen', () => {
+    render(<GeneratedCodeList isLoading={true} data={[]} />)
+    expect(screen.getByTestId('code-loading')).toBeInTheDocument()
+  })
+  it('render no data ', () => {
+    render(<GeneratedCodeList isLoading={false} data={[]} />)
+    expect(screen.getByText('No conversation started.')).toBeInTheDocument()
+  })
+})
