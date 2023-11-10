@@ -1,4 +1,3 @@
-import { formSchema } from '@/app/(dashboard)/(routes)/code/useCode'
 import { z } from 'zod'
 import { SubmitHandler } from 'react-hook-form'
 
@@ -12,7 +11,7 @@ export interface FormikError {
 }
 
 export interface FormPropType {
-  handleFunc: (event: React.BaseSyntheticEvent) => void
+  form: (event: React.BaseSyntheticEvent) => void
+  onSubmit: () => {}
   isLoading: boolean
-  onSubmitFunc: SubmitHandler<z.infer<typeof formSchema>> // Uses the SubmitHandler type
 }

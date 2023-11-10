@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input'
 import useCode from '@/app/(dashboard)/(routes)/code/useCode'
 import GeneratedCodeList from '@/components/Presentational/GeneratedCodeList/GeneratedCodeList'
 import withClientAuth from '@/HOC/withClientAuth'
+import CodeForm from '@/components/forms/CodeForm/CodeForm'
 
 const CodePage = () => {
   const { messages, form, isLoading, onSubmit } = useCode()
@@ -23,47 +24,7 @@ const CodePage = () => {
       />
       <div className="px-4 lg:px-8">
         <div>
-          <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="
-                rounded-lg 
-                border 
-                w-full 
-                p-4 
-                px-3 
-                md:px-6 
-                focus-within:shadow-sm
-                grid
-                grid-cols-12
-                gap-2
-              "
-            >
-              <FormField
-                name="prompt"
-                render={({ field }) => (
-                  <FormItem className="col-span-12 lg:col-span-10">
-                    <FormControl className="m-0 p-0">
-                      <Input
-                        className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-                        disabled={isLoading}
-                        placeholder="Simple toggle button using react hooks."
-                        {...field}
-                      />
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
-              <Button
-                className="col-span-12 lg:col-span-2 w-full"
-                type="submit"
-                disabled={isLoading}
-                size="icon"
-              >
-                Generate
-              </Button>
-            </form>
-          </Form>
+          <CodeForm form={form} onSubmit={onSubmit} isLoading={isLoading} />
         </div>
         <div className="space-y-4 mt-4">
           <GeneratedCodeList isLoading={isLoading} data={messages} />

@@ -3,19 +3,25 @@ import { Form, FormControl, FormField, FormItem } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { FormPropType } from '@/lib/types'
 
-const CodeForm = ({
-  handleFunc,
-  isLoading,
-  onSubmitFunc,
-  ...rest
-}: FormPropType) => {
+const CodeForm = ({ form, onSubmit, isLoading }: any) => {
   return (
-    // @ts-ignore
-    <Form {...rest}>
+    //@ts-ignore
+    <Form {...form}>
       <form
         //@ts-ignore
-        onSubmit={handleFunc(onSubmitFunc)}
-        className="form-1"
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="
+                rounded-lg 
+                border 
+                w-full 
+                p-4 
+                px-3 
+                md:px-6 
+                focus-within:shadow-sm
+                grid
+                grid-cols-12
+                gap-2
+              "
       >
         <FormField
           name="prompt"
