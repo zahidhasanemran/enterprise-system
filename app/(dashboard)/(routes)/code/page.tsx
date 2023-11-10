@@ -1,21 +1,16 @@
 'use client'
 
-import withClientAuth from '@/HOC/withClientAuth'
+import { Code } from 'lucide-react'
+import { Heading } from '@/components/global/Heading/Heading'
+import { Button } from '@/components/ui/button'
+import { Form, FormControl, FormField, FormItem } from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
 import useCode from '@/app/(dashboard)/(routes)/code/useCode'
 import GeneratedCodeList from '@/components/Presentational/GeneratedCodeList/GeneratedCodeList'
-import CodeForm from '@/components/forms/CodeForm/CodeForm'
-import { Heading } from '@/components/global/Heading/Heading'
-import { Code } from 'lucide-react'
+import withClientAuth from '@/HOC/withClientAuth'
 
 const CodePage = () => {
-  const {
-    messages,
-    handleSubmit,
-    isLoading,
-    onSubmit,
-    // defaultValues,
-    ...rest
-  } = useCode()
+  const { messages, form, isLoading, onSubmit } = useCode()
 
   return (
     <div className="mt-16">
@@ -28,13 +23,47 @@ const CodePage = () => {
       />
       <div className="px-4 lg:px-8">
         <div>
-          <CodeForm
-            //@ts-ignore
-            handleFunc={handleSubmit}
-            isLoading={isLoading}
-            onSubmitFunc={onSubmit}
-            {...rest}
-          />
+          <Form {...form}>
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="
+                rounded-lg 
+                border 
+                w-full 
+                p-4 
+                px-3 
+                md:px-6 
+                focus-within:shadow-sm
+                grid
+                grid-cols-12
+                gap-2
+              "
+            >
+              <FormField
+                name="prompt"
+                render={({ field }) => (
+                  <FormItem className="col-span-12 lg:col-span-10">
+                    <FormControl className="m-0 p-0">
+                      <Input
+                        className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
+                        disabled={isLoading}
+                        placeholder="Simple toggle button using react hooks."
+                        {...field}
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+              <Button
+                className="col-span-12 lg:col-span-2 w-full"
+                type="submit"
+                disabled={isLoading}
+                size="icon"
+              >
+                Generate
+              </Button>
+            </form>
+          </Form>
         </div>
         <div className="space-y-4 mt-4">
           <GeneratedCodeList isLoading={isLoading} data={messages} />

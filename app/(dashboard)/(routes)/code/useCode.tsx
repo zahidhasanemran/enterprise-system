@@ -8,7 +8,7 @@ import { toast } from 'react-hot-toast'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useProModal } from '@/hooks/useProModal'
 
-export const formSchema = z.object({
+const formSchema = z.object({
   prompt: z.string().min(1, {
     message: 'Prompt is required.',
   }),
@@ -17,21 +17,16 @@ export const formSchema = z.object({
 const useCode = () => {
   const router = useRouter()
   const proModal = useProModal()
-  const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([])
+  const [messages, setMessages] = useState<any[]>([])
 
-  const {
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitting, defaultValues },
-    ...rest
-  } = useForm<z.infer<typeof formSchema>>({
+  const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       prompt: '',
     },
   })
 
-  const isLoading = isSubmitting
+  const isLoading = form.formState.isSubmitting
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
@@ -44,7 +39,7 @@ const useCode = () => {
       const response = await axios.post('/api/code', { messages: newMessages })
       setMessages(current => [...current, userMessage, response.data])
 
-      reset()
+      form.reset()
     } catch (error: any) {
       if (error?.response?.status === 403) {
         proModal.onOpen()
@@ -56,17 +51,7 @@ const useCode = () => {
     }
   }
 
-  return {
-    router,
-    proModal,
-    messages,
-    setMessages,
-    handleSubmit,
-    isLoading,
-    onSubmit,
-    defaultValues,
-    ...rest,
-  }
+  return { router, proModal, messages, setMessages, form, isLoading, onSubmit }
 }
 
 export default useCode

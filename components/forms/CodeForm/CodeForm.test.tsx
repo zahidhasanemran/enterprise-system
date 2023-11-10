@@ -1,18 +1,22 @@
-import { render, screen } from '@testing-library/react'
+import React from 'react'
+import { render } from '@testing-library/react'
+// import CodeForm from './CodeForm'
 import CodeForm from '@/components/forms/CodeForm/CodeForm'
+import { Form, FormControl, FormField, FormItem } from '@/components/ui/form'
 
 // Mock the react-hook-form library and its useForm function
-jest.mock('react-hook-form', () => ({
-  useForm: () => ({
-    register: jest.fn(),
-    handleSubmit: onSubmit => onSubmit,
-  }),
-}))
+// jest.mock('react-hook-form', () => ({
+//   useForm: () => ({
+//     register: jest.fn(),
+//     handleSubmit: (onSubmit: any) => onSubmit,
+//   }),
+// }))
 
 describe('CodeForm', () => {
   it('renders the form with input and button', async () => {
     const onSubmit = jest.fn()
-    const handleSubmit = fn => fn // Create a mock handleSubmit function
+    // const handleSubmit = (fn: any) => fn
+    const handleSubmit = jest.fn()
     render(
       <CodeForm
         handleFunc={handleSubmit}
