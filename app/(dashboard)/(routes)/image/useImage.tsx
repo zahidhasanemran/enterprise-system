@@ -16,7 +16,7 @@ const formSchema = z.object({
   resolution: z.string().min(1),
 })
 
-const amountOptions = [
+export const amountOptions = [
   {
     value: '1',
     label: '1 Photo',
@@ -39,7 +39,7 @@ const amountOptions = [
   },
 ]
 
-const resolutionOptions = [
+export const resolutionOptions = [
   {
     value: '256x256',
     label: '256x256',

@@ -4,7 +4,7 @@ import React from 'react'
 
 describe('Input Component', () => {
   it('render input with text type', () => {
-    const { container }: RenderResult = render(<Input type="text" />)
+    const { container }: RenderResult = render(<Input id="" type="text" />)
     const inputElement = container.querySelector('input')
 
     expect(inputElement).toBeInTheDocument()
@@ -12,7 +12,7 @@ describe('Input Component', () => {
   })
 
   it('render input with email type', () => {
-    const { container } = render(<Input type="email" />)
+    const { container } = render(<Input id="" type="email" />)
     const inputElement = container.querySelector('input')
 
     expect(inputElement).toBeInTheDocument()
@@ -21,7 +21,7 @@ describe('Input Component', () => {
 
   it('forwards ref properly', () => {
     const ref = React.createRef<HTMLInputElement>()
-    render(<Input type="email" ref={ref} />)
+    render(<Input id="" type="email" ref={ref} />)
     const inputElement = ref.current
 
     expect(inputElement).not.toBeNull()
@@ -32,7 +32,7 @@ describe('Input Component', () => {
     const ref = React.createRef<HTMLInputElement>()
     const handleChange = jest.fn() // Mock the onChange handler
     const { container } = render(
-      <Input type="text" ref={ref} onChange={handleChange} />
+      <Input id="" type="text" ref={ref} onChange={handleChange} />
     )
     const inputElement: HTMLInputElement | null =
       container.querySelector('input')

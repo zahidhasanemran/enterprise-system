@@ -1,3 +1,7 @@
+import {
+  amountOptions,
+  resolutionOptions,
+} from '@/app/(dashboard)/(routes)/image/useImage'
 import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
@@ -10,13 +14,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 
-const ImageForm = ({
-  form,
-  onSubmit,
-  isLoading,
-  amountOptions,
-  resolutionOptions,
-}: any) => {
+const ImageForm = ({ form, onSubmit, isLoading }: any) => {
   return (
     <Form {...form}>
       <form
@@ -59,7 +57,7 @@ const ImageForm = ({
                 onValueChange={field.onChange}
                 value={field.value}
                 defaultValue={field.value}
-                data-id="combobox"
+                data-testid="combobox"
               >
                 <FormControl>
                   <SelectTrigger>
@@ -67,7 +65,7 @@ const ImageForm = ({
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  {amountOptions.map((option: any) => (
+                  {amountOptions?.map((option: any) => (
                     <SelectItem key={option.value} value={option.value}>
                       {option.label}
                     </SelectItem>
@@ -87,7 +85,7 @@ const ImageForm = ({
                 onValueChange={field.onChange}
                 value={field.value}
                 defaultValue={field.value}
-                data-id="combobox"
+                data-testid="combobox2"
               >
                 <FormControl>
                   <SelectTrigger>
@@ -95,7 +93,7 @@ const ImageForm = ({
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  {resolutionOptions.map((option: any) => (
+                  {resolutionOptions?.map((option: any) => (
                     <SelectItem key={option.value} value={option.value}>
                       {option.label}
                     </SelectItem>

@@ -36,7 +36,8 @@ describe('ImageForm', () => {
       'Test Prompt'
     )
     // userEvent.selectOptions(
-    //   screen.queryByText('combobox', { name: 'Amount' }),
+    //   screen.getByRole('combobox'),
+    //   { name: 'amount' },
     //   'option1'
     // )
     // userEvent.selectOptions(
@@ -49,13 +50,13 @@ describe('ImageForm', () => {
 
     // Wait for form submission
     await waitFor(() => {
-      // expect(mockOnSubmit).toHaveBeenCalled()
+      expect(mockOnSubmit).toHaveBeenCalled()
       // Add assertions for form values
       // expect(mockOnSubmit).toHaveBeenCalledWith({
       //   prompt: 'Test Prompt',
       //   amount: 'option1',
       //   resolution: 'optionA',
-      // });
+      // })
     })
   })
 })
