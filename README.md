@@ -20,14 +20,14 @@ The Enterprise System comprises three main features:
 
 1. **Generate Code:**
 
-   - Description of the feature.
+   - It can generate code based on user requirements
 
 2. **General Chat:**
 
-   - Description of the feature.
+   - Anyone can chat to learn anything
 
 3. **Image Generation:**
-   - Description of the feature.
+   - Provide description and generate image
 
 ## Installation
 
@@ -106,8 +106,9 @@ The app relies on the following key dependencies:
 
 ## Contributing
 
-If you want to contribute to the project, please follow the guidelines outlined in the [CONTRIBUTING.md](CONTRIBUTING.md) file.
+<!-- If you want to contribute to the project, please follow the guidelines outlined in the [CONTRIBUTING.md](CONTRIBUTING.md) file. -->
 
 ## License
 
-This project is licensed under the [LICENSE_NAME](LICENSE_URL) License - see the [LICENSE.md](LICENSE.md) file for details.
+<!--
+This project is licensed under the [LICENSE_NAME](LICENSE_URL) License - see the [LICENSE.md](LICENSE.md) file for details. -->
